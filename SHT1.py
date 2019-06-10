@@ -35,6 +35,10 @@ while True:
 	linearHumidity = C1 + C2 * rawHumidity + C3 * rawHumidity * rawHumidity
 	# Correct humidity value for current temperature
         correctedHumidity = (temperature - 25.0) * (T1 + T2 * rawHumidity) + linearHumidity
+	if(correctedHumidity>100):
+		correctedHumidity = 100
+	if(correctedHumidity<0.1):
+		correctedHumidity = 0.1
 	dewPoint = sht1x.calculate_dew_point(temperature, correctedHumidity)
 	print("temperature [C]: \t{:0.2f}" .format(temperature) )
 	#print("raw humidity [int]: \t{}" .format(rawHumidity) )
