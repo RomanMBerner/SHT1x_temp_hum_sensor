@@ -68,8 +68,8 @@ while True:
 		subprocess.call(["curl", "-i", "-XPOST", "192.168.1.88:8086/write?db=SHT1_temp_and_hum", "--data-binary", post3])
 
 		time.sleep(1)
-	except ValueError:
-		print("Exception! (ValueError) \n Continue ...")
+	except(ValueError,SystemError):
+		print("Excepion! \n Continue ...")
 ##while True:
 	###s.enter(5, 0, TakeData, (s,))
 	###s.run()
