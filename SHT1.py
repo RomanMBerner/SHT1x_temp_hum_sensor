@@ -1,7 +1,7 @@
 #####################################################
 # python script to read the temperature and the     #
 # humidity with the SHT1x sensor.                   #
-# Last modifications: 03.08.2019 by R.Berner        #
+# Last modifications: 17.11.2019 by R.Berner        #
 #####################################################
 
 import sched, time
