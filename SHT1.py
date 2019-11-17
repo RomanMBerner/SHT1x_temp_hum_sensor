@@ -24,6 +24,9 @@ while True:
 
 		sht1x = SHT1x(dataPin, clkPin)
 		temperature = sht1x.read_temperature_C()
+		if(temperature>50):
+			print(" temperature = %.2f > 50 deg C -> reject " %temperature)
+			continue
 
 		sht1x = SHT1x(dataPin, clkPin)
 		rawHumidity = sht1x.read_rawHumidity()
@@ -64,7 +67,7 @@ while True:
 		subprocess.call(["curl", "-i", "-XPOST", "192.168.1.88:8086/write?db=SHT1_temp_and_hum", "--data-binary", post2])
 		subprocess.call(["curl", "-i", "-XPOST", "192.168.1.88:8086/write?db=SHT1_temp_and_hum", "--data-binary", post3])
 
-		time.sleep(5)
+		time.sleep(1)
 	except ValueError:
 		print("Exception! (ValueError) \n Continue ...")
 ##while True:
